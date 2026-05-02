@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영어 독해 가이드맵</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --navy: #1a2744;
+    --step1: #e8523a;   /* 동사 찾기 - 빨강 */
+    --step2: #2563c8;   /* 주어·목적어 - 파랑 */
+    --step3: #16a34a;   /* 수식어구 - 초록 */
+    --step4: #9333ea;   /* 절 연결 - 보라 */
+    --step5: #d97706;   /* 독해 전략 - 주황 */
+    --yellow: #fef08a;
+    --pink: #fce7f3;
+    --mint: #d1fae5;
+    --lavender: #ede9fe;
+    --peach: #ffedd5;
+    --sky: #dbeafe;
+    --text: #1e1e2e;
+    --text-mid: #44445a;
+    --border: #e5e2da;
+    --card-shadow: 0 3px 18px rgba(26,39,68,0.09);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── TOP HEADER ── */
+  .top-bar {
+    background: var(--navy);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  .top-bar-left {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .top-logo {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 20px;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+
+  .top-logo span { color: #fbbf24; }
+
+  .top-bar p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .top-steps {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+
+  .ts-btn {
+    font-size: 11.5px; font-weight: 700;
+    padding: 5px 12px; border-radius: 20px;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+    transition: opacity .15s;
+    color: white;
+  }
+  .ts-btn:hover { opacity: .8; }
+  .ts-1 { background: var(--step1); }
+  .ts-2 { background: var(--step2); }
+  .ts-3 { background: var(--step3); }
+  .ts-4 { background: var(--step4); }
+  .ts-5 { background: var(--step5); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a2744 0%, #243566 50%, #1a3a6a 100%);
+    padding: 40px 28px 36px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top:-80px; right:-80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(251,191,36,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index:1; max-width: 800px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-block;
+    background: #fbbf24; color: #1a2744;
+    font-size: 11px; font-weight: 900;
+    padding: 4px 14px; border-radius: 20px;
+    letter-spacing: 1px; margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(26px, 5vw, 42px);
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+
+  .hero h1 em { color: #fbbf24; font-style: normal; }
+
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+  }
+
+  .flow-steps {
+    display: flex; justify-content: center; align-items: center;
+    flex-wrap: wrap; gap: 4px; margin-top: 8px;
+  }
+
+  .flow-chip {
+    font-size: 12px; font-weight: 700;
+    padding: 7px 14px; border-radius: 24px;
+    color: white; white-space: nowrap;
+  }
+
+  .flow-arrow {
+    color: rgba(255,255,255,0.35);
+    font-size: 16px;
+  }
+
+  /* ── MAIN WRAP ── */
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 18px 56px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 28px; }
+
+  .sec-head {
+    display: flex; align-items: center; gap: 0;
+    margin-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+  }
+
+  .sec-num {
+    width: 54px; min-height: 54px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 22px; color: white;
+    flex-shrink: 0;
+  }
+
+  .sec-num small {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 1px; opacity: .75;
+    margin-top: -2px;
+  }
+
+  .sec-title-bar {
+    flex: 1;
+    padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .sec-title-bar h2 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 18px; color: white; letter-spacing: -.5px;
+  }
+
+  .sec-title-bar p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .sec-body {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 22px 20px;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* colors per section */
+  .s1 .sec-num, .s1 .sec-title-bar { background: var(--step1); }
+  .s2 .sec-num, .s2 .sec-title-bar { background: var(--step2); }
+  .s3 .sec-num, .s3 .sec-title-bar { background: var(--step3); }
+  .s4 .sec-num, .s4 .sec-title-bar { background: var(--step4); }
+  .s5 .sec-num, .s5 .sec-title-bar { background: var(--step5); }
+
+  /* ── STEPS ── */
+  .steps { display: grid; gap: 10px; }
+
+  .step-row {
+    display: flex; gap: 12px;
+    background: #fafaf8;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 15px;
+    align-items: flex-start;
+  }
+
+  .step-circle {
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 14px; color: white;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .sc1 { background: var(--step1); }
+  .sc2 { background: var(--step2); }
+  .sc3 { background: var(--step3); }
+  .sc4 { background: var(--step4); }
+  .sc5 { background: var(--step5); }
+
+  .step-content h4 {
+    font-size: 14px; font-weight: 700; color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .step-content p {
+    font-size: 13px; color: var(--text-mid); line-height: 1.65;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .hl-box {
+    border-radius: 9px;
+    padding: 11px 15px;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 8px 0;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .hl-icon { font-size: 17px; flex-shrink: 0; margin-top:1px; }
+  .hl-yellow { background: #fefce8; border: 1.5px solid #fde047; color: #713f12; }
+  .hl-red    { background: #fff1f2; border: 1.5px solid #fca5a5; color: #7f1d1d; }
+  .hl-blue   { background: var(--sky); border: 1.5px solid #93c5fd; color: #1e3a8a; }
+  .hl-green  { background: var(--mint); border: 1.5px solid #6ee7b7; color: #064e3b; }
+  .hl-purple { background: var(--lavender); border: 1.5px solid #c4b5fd; color: #3b0764; }
+  .hl-orange { background: var(--peach); border: 1.5px solid #fdba74; color: #7c2d12; }
+
+  /* ── EXAMPLE SENTENCES ── */
+  .eg-wrap { display: grid; gap: 8px; margin: 10px 0; }
+
+  .eg {
+    background: #f7f7fb;
+    border: 1px solid #e5e3f0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .eg .en {
+    font-size: 13.5px; color: var(--navy);
+    margin-bottom: 3px;
+    font-weight: 500;
+  }
+  .eg .ko { font-size: 12px; color: #6b6b8a; }
+  .eg .note { font-size: 12px; font-weight: 700; margin-top: 4px; }
+  .note-red    { color: var(--step1); }
+  .note-blue   { color: var(--step2); }
+  .note-green  { color: var(--step3); }
+  .note-purple { color: var(--step4); }
+  .note-orange { color: var(--step5); }
+
+  /* word highlight in sentences */
+  .w-red    { background: #fee2e2; color: #b91c1c; padding:0 3px; border-radius:3px; font-weight:700; }
+  .w-blue   { background: #dbeafe; color: #1d4ed8; padding:0 3px; border-radius:3px; font-weight:700; }
+  .w-green  { background: #dcfce7; color: #15803d; padding:0 3px; border-radius:3px; font-weight:700; }
+  .w-yellow { background: #fef9c3; color: #854d0e; padding:0 3px; border-radius:3px; font-weight:700; }
+  .w-purple { background: #ede9fe; color: #6d28d9; padding:0 3px; border-radius:3px; font-weight:700; }
+  .w-orange { background: #ffedd5; color: #c2410c; padding:0 3px; border-radius:3px; font-weight:700; }
+
+  /* ── TABLE ── */
+  .mini-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border); margin: 10px 0;
+  }
+  .mini-table th {
+    padding: 9px 12px; text-align: left;
+    font-size: 12px; font-weight: 700; letter-spacing: .3px;
+    color: white;
+  }
+  .mini-table td {
+    padding: 9px 12px; border-bottom: 1px solid var(--border);
+    vertical-align: top; color: var(--text-mid);
+  }
+  .mini-table tr:last-child td { border-bottom: none; }
+  .mini-table tr:nth-child(even) td { background: #fafaf8; }
+  .mini-table td:first-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+
+  /* ── GRID LAYOUTS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media(max-width:600px) {
+    .two-col, .three-col { grid-template-columns: 1fr; }
+  }
+
+  .mini-card {
+    background: #fafaf8;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 14px;
+  }
+  .mini-card h5 {
+    font-size: 13px; font-weight: 700; color: var(--navy);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .mini-card p, .mini-card li {
+    font-size: 12.5px; color: var(--text-mid); line-height: 1.65;
+  }
+  .mini-card ul { padding-left: 14px; }
+  .mini-card li { margin-bottom: 3px; }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow-row {
+    display: flex; align-items: center; gap: 6px;
+    flex-wrap: wrap; margin: 10px 0;
+  }
+  .flow-node {
+    background: var(--navy); color: white;
+    font-size: 12.5px; font-weight: 700;
+    padding: 7px 14px; border-radius: 20px;
+    white-space: nowrap;
+  }
+  .flow-node.fn-red    { background: var(--step1); }
+  .flow-node.fn-blue   { background: var(--step2); }
+  .flow-node.fn-green  { background: var(--step3); }
+  .flow-node.fn-purple { background: var(--step4); }
+  .flow-node.fn-orange { background: var(--step5); }
+  .flow-node.fn-light  { background: #e5e7eb; color: var(--navy); }
+  .flow-arr { color: #9ca3af; font-size: 18px; }
+
+  /* ── RULE CARD ── */
+  .rule-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: white;
+    margin: 10px 0;
+  }
+  .rule-card h5 {
+    font-size: 13px; font-weight: 700; margin-bottom: 8px;
+    color: #fbbf24;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .rule-card p {
+    font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.7;
+  }
+  .rule-card ul { padding-left: 16px; }
+  .rule-card li { font-size: 13px; color: rgba(255,255,255,.8); margin-bottom: 4px; }
+
+  /* ── DIVIDER ── */
+  .div-label {
+    text-align: center;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    color: #9ca3af; text-transform: uppercase;
+    margin: 20px 0 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .div-label::before, .div-label::after {
+    content: ''; flex:1; height:1px; background: var(--border);
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist { display: grid; gap: 6px; margin: 8px 0; }
+  .cl-item {
+    display: flex; align-items: flex-start; gap: 9px;
+    background: #fafaf8; border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 12px;
+    font-size: 13px; color: var(--text-mid);
+  }
+  .cl-icon { font-size: 15px; flex-shrink:0; margin-top:1px; }
+
+  /* ── QUICK REF TABLE ── */
+  .qr-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px; border-radius: 10px;
+    overflow: hidden; border: 1px solid var(--border);
+    margin: 10px 0;
+  }
+  .qr-table th {
+    padding: 8px 12px; text-align: left;
+    background: var(--navy); color: white;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .5px;
+  }
+  .qr-table td {
+    padding: 8px 12px; border-bottom: 1px solid var(--border);
+    color: var(--text-mid); vertical-align: top;
+  }
+  .qr-table tr:last-child td { border-bottom: none; }
+  .qr-table tr:hover td { background: #f5f5ff; }
+
+  /* ── BIG TIP FOOTER ── */
+  .big-tip {
+    background: linear-gradient(135deg, #1a2744, #243566);
+    border-radius: 16px; padding: 28px 24px;
+    color: white; text-align: center; margin-top: 12px;
+  }
+  .big-tip h3 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 20px; margin-bottom: 10px; letter-spacing: -.5px;
+  }
+  .big-tip h3 span { color: #fbbf24; }
+  .big-tip p { font-size: 13.5px; color: rgba(255,255,255,.75); line-height:1.8; }
+  .big-tip strong { color: #fbbf24; }
+
+  footer {
+    text-align:center; padding:24px; font-size:12px;
+    color:#aaa; border-top:1px solid var(--border);
+  }
+
+  @media(max-width:520px) {
+    .top-steps { display: none; }
+    .sec-title-bar p { display: none; }
+    .hero h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <div class="top-logo">영어독해 <span>가이드맵</span></div>
+    <p>모르면 여기 보면 돼!</p>
+  </div>
+  <div class="top-steps">
+    <a href="#step1" class="ts-btn ts-1">① 동사찾기</a>
+    <a href="#step2" class="ts-btn ts-2">② 주어·목적어</a>
+    <a href="#step3" class="ts-btn ts-3">③ 수식어구</a>
+    <a href="#step4" class="ts-btn ts-4">④ 절 연결</a>
+    <a href="#step5" class="ts-btn ts-5">⑤ 독해전략</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📖 독해할 때 옆에 놓고 보는 가이드</div>
+    <h1>영어 문장, <em>이 순서대로</em> 읽어!</h1>
+    <p>막히면 당황하지 말고 차근차근 이 순서를 따라가면 돼 😊</p>
+    <div class="flow-steps">
+      <span class="flow-chip" style="background:var(--step1);">① 동사 찾기</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip" style="background:var(--step2);">② 주어·목적어</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip" style="background:var(--step3);">③ 수식어구 제거</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip" style="background:var(--step4);">④ 절 연결어 파악</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-chip" style="background:var(--step5);">⑤ 해석 완성</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══════════════════════════ STEP 1 ══════════════════════════ -->
+<div class="section s1" id="step1">
+  <div class="sec-head">
+    <div class="sec-num">①<small>STEP</small></div>
+    <div class="sec-title-bar">
+      <div>
+        <h2>🔴 동사 먼저 찾아라</h2>
+        <p>동사를 알면 문장의 뼈대가 보인다</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <div class="hl-box hl-yellow">
+      <span class="hl-icon">⭐</span>
+      <span><strong>핵심 원칙:</strong> 영어 문장은 <strong>동사를 먼저 찾아야</strong> 문장 구조가 보인다.
+      동사 뒤에 뭐가 오는지를 보면 주어·목적어·보어를 자동으로 알 수 있다!</span>
+    </div>
+
+    <div class="div-label">동사 찾는 순서</div>
+
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-circle sc1">1</div>
+        <div class="step-content">
+          <h4>완전한 동사 vs 불완전한 동사를 구분하자</h4>
+          <p>문장에서 진짜 동사(서술어)는 <strong>완전한 동사</strong>야. to부정사·동명사·분사(-ing, -ed)는 동사처럼 생겼지만 <strong>불완전한 동사</strong>라서 문장의 핵심 동사가 아니야.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle sc1">2</div>
+        <div class="step-content">
+          <h4>형식(1~5형식)을 동사로 판단한다</h4>
+          <p>동사를 찾은 다음, 그 동사가 몇 형식인지 확인해. 형식에 따라 뒤에 오는 성분이 결정돼.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle sc1">3</div>
+        <div class="step-content">
+          <h4>자동사 vs 타동사를 꼭 구분하자</h4>
+          <p>자동사는 목적어 없이 혼자 쓰여. 타동사는 목적어가 반드시 있어야 해. 수동태가 되려면 타동사여야 해!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-label">완전한 동사 vs 불완전한 동사</div>
+
+    <div class="two-col">
+      <div class="mini-card">
+        <h5>✅ 완전한 동사 (진짜 동사)</h5>
+        <ul>
+          <li>현재형: <span class="w-red">go, make, is</span></li>
+          <li>과거형: <span class="w-red">went, made, was</span></li>
+          <li>조동사+동사원형: <span class="w-red">can go, will make</span></li>
+          <li>be동사+과거분사(수동): <span class="w-red">was invented</span></li>
+          <li>have+과거분사(완료): <span class="w-red">has made</span></li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h5>❌ 불완전한 동사 (동사 역할 ✗)</h5>
+        <ul>
+          <li>to부정사: <span class="w-blue">to make, to go</span></li>
+          <li>동명사: <span class="w-blue">making, going</span></li>
+          <li>현재분사: <span class="w-blue">making, going</span></li>
+          <li>과거분사: <span class="w-blue">made, invented</span></li>
+          <li>⚠ -ing와 과거분사는 be동사와 함께 있을 때만 완전한 동사!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="div-label">1~5형식 한눈에 보기</div>
+
+    <table class="mini-table">
+      <thead>
+        <tr>
+          <th style="background:var(--step1); width:60px;">형식</th>
+          <th style="background:var(--step1);">구조</th>
+          <th style="background:var(--step1);">예문</th>
+          <th style="background:var(--step1);">특징</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1형식</td>
+          <td>주어 + 동사</td>
+          <td><span class="w-blue">He</span> <span class="w-red">runs</span>.</td>
+          <td>목적어·보어 없음</td>
+        </tr>
+        <tr>
+          <td>2형식</td>
+          <td>주어 + 동사 + 보어</td>
+          <td><span class="w-blue">She</span> <span class="w-red">is</span> <span class="w-green">happy</span>.</td>
+          <td>보어 = 형용사·명사 (주어 설명)</td>
+        </tr>
+        <tr>
+          <td>3형식</td>
+          <td>주어 + 동사 + 목적어</td>
+          <td><span class="w-blue">He</span> <span class="w-red">made</span> <span class="w-yellow">a sandwich</span>.</td>
+          <td>목적어(명사) 하나</td>
+        </tr>
+        <tr>
+          <td>4형식</td>
+          <td>주어 + 동사 + 간접목적어 + 직접목적어</td>
+          <td><span class="w-blue">She</span> <span class="w-red">gave</span> <span class="w-yellow">me</span> <span class="w-yellow">a book</span>.</td>
+          <td>목적어 두 개 (누구에게 + 무엇을)</td>
+        </tr>
+        <tr>
+          <td>5형식</td>
+          <td>주어 + 동사 + 목적어 + 목적격보어</td>
+          <td><span class="w-blue">It</span> <span class="w-red">made</span> <span class="w-yellow">him</span> <span class="w-green">happy</span>.</td>
+          <td>보어 자리 = 반드시 <strong>형용사</strong>! (부사 ✗)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="hl-box hl-red">
+      <span class="hl-icon">🚨</span>
+      <span><strong>5형식 자주 틀리는 함정!</strong> "make him <span style="text-decoration:line-through;">happily</span>" → <strong>happily(부사) ✗ / happy(형용사) ✓</strong><br>
+      보어 자리는 무조건 형용사야. "~하게 만들다"라고 해석되도 부사 쓰면 틀려!</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ STEP 2 ══════════════════════════ -->
+<div class="section s2" id="step2">
+  <div class="sec-head">
+    <div class="sec-num">②<small>STEP</small></div>
+    <div class="sec-title-bar">
+      <div>
+        <h2>🔵 주어·목적어를 찾아라</h2>
+        <p>주어(S), 목적어(O), 보어(C)의 자리를 확인한다</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <div class="hl-box hl-blue">
+      <span class="hl-icon">💡</span>
+      <span><strong>핵심 원칙:</strong> 동사를 찾으면 그 <strong>앞</strong>이 주어, <strong>뒤</strong>가 목적어나 보어야.
+      주어·목적어 자리에는 <strong>명사(구/절)</strong>만 올 수 있어!</span>
+    </div>
+
+    <div class="div-label">주어·목적어 자리에 올 수 있는 것들</div>
+
+    <div class="three-col">
+      <div class="mini-card" style="border-color:#93c5fd;">
+        <h5 style="color:var(--step2);">🔷 that절</h5>
+        <p><span class="w-blue">that</span> + <strong>완전한 절</strong><br>
+        → 명사절로 주어·목적어 가능</p>
+        <div class="eg" style="margin-top:8px;">
+          <div class="en">I know <span class="w-blue">that he is kind</span>.</div>
+          <div class="ko">그가 친절하다는 것을 안다.</div>
+        </div>
+      </div>
+      <div class="mini-card" style="border-color:#93c5fd;">
+        <h5 style="color:var(--step2);">🔷 to부정사·동명사</h5>
+        <p><span class="w-blue">to+동사원형</span> 또는 <span class="w-blue">-ing</span><br>
+        → 명사처럼 주어·목적어 가능</p>
+        <div class="eg" style="margin-top:8px;">
+          <div class="en"><span class="w-blue">Watching movies</span> makes him happy.</div>
+          <div class="ko">영화 보는 것이 그를 행복하게 해.</div>
+        </div>
+      </div>
+      <div class="mini-card" style="border-color:#93c5fd;">
+        <h5 style="color:var(--step2);">🔷 의문사절 (간접의문문)</h5>
+        <p><span class="w-blue">의문사 + 주어 + 동사</span><br>
+        → 평서문 어순으로! 의문문 어순 ✗</p>
+        <div class="eg" style="margin-top:8px;">
+          <div class="en">I wonder <span class="w-blue">why he cried</span>.</div>
+          <div class="ko">왜 그가 울었는지 궁금해.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-label">간접의문문 어순 — 자주 틀리는 부분!</div>
+
+    <div class="eg-wrap">
+      <div class="eg">
+        <div class="en"><span class="w-red">✗ 틀림</span> I wonder why <span style="text-decoration:line-through; color:#b91c1c;">did he cry</span>.</div>
+        <div class="en"><span class="w-green">✓ 맞음</span> I wonder why <span class="w-blue">he cried</span>.</div>
+        <div class="note note-blue">간접의문문은 "의문사 + 주어 + 동사" 순서! 의문문처럼 뒤집으면 안 돼.</div>
+      </div>
+      <div class="eg">
+        <div class="en"><span class="w-red">✗ 틀림</span> They want to know how <span style="text-decoration:line-through; color:#b91c1c;">is the weather</span>.</div>
+        <div class="en"><span class="w-green">✓ 맞음</span> They want to know how <span class="w-blue">the weather is</span>.</div>
+        <div class="note note-blue">how, where, when, why 뒤도 마찬가지로 평서문 어순!</div>
+      </div>
+    </div>
+
+    <div class="div-label">명사절 총정리</div>
+
+    <table class="qr-table">
+      <thead>
+        <tr>
+          <th>종류</th>
+          <th>형태</th>
+          <th>완전/불완전</th>
+          <th>해석</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>that절</td>
+          <td>that + 완전한 절</td>
+          <td><span class="w-green">완전한 절</span></td>
+          <td>~라는 것</td>
+        </tr>
+        <tr>
+          <td>간접의문문</td>
+          <td>의문사 + 주어 + 동사</td>
+          <td><span class="w-green">완전한 절</span></td>
+          <td>~인지, ~한지</td>
+        </tr>
+        <tr>
+          <td>의문사 + 명사</td>
+          <td>which/what + 명사 + 불완전한 절</td>
+          <td><span class="w-red">불완전한 절</span></td>
+          <td>어떤 ~인지</td>
+        </tr>
+        <tr>
+          <td>if/whether절</td>
+          <td>if/whether + 완전한 절</td>
+          <td><span class="w-green">완전한 절</span></td>
+          <td>~인지 아닌지</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ STEP 3 ══════════════════════════ -->
+<div class="section s3" id="step3">
+  <div class="sec-head">
+    <div class="sec-num">③<small>STEP</small></div>
+    <div class="sec-title-bar">
+      <div>
+        <h2>🟢 수식어구를 구분하라</h2>
+        <p>수식어는 핵심 문장을 꾸미는 '추가 정보'야 — 없어도 문장 성립!</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <div class="hl-box hl-green">
+      <span class="hl-icon">💡</span>
+      <span><strong>핵심 원칙:</strong> 수식어구(형용사구, 부사구)를 <strong>괄호로 묶어서 제거</strong>하면
+      남은 게 핵심 뼈대(주어+동사+목적어)야. 길고 복잡한 문장도 수식어 빼면 간단해!</span>
+    </div>
+
+    <div class="div-label">형용사 역할 vs 부사 역할 — 완전/불완전 절 구분</div>
+
+    <div class="two-col">
+      <div class="mini-card" style="border-color:#6ee7b7;">
+        <h5 style="color:var(--step3);">🟩 형용사 역할 (명사 수식)</h5>
+        <ul>
+          <li>관계사절: <span class="w-green">who, which, that</span> + 불완전한 절</li>
+          <li>to부정사: <span class="w-green">to+동사원형</span> (명사 뒤에서 수식)</li>
+          <li>분사: <span class="w-green">-ing / -ed</span> (명사 앞뒤에서 수식)</li>
+          <li>→ 해석: <strong>"~하는, ~한" (명사 꾸미기)</strong></li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-color:#6ee7b7;">
+        <h5 style="color:var(--step3);">🟩 부사 역할 (동사·문장 수식)</h5>
+        <ul>
+          <li>전치사구: <span class="w-green">in, on, at, by...</span> + 명사</li>
+          <li>부사절: <span class="w-green">when, where, how, why, that</span> + 완전한 절</li>
+          <li>to부정사: <span class="w-green">to+동사원형</span> (목적·이유)</li>
+          <li>→ 해석: <strong>"~하게, ~해서, ~할 때"</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="div-label">to부정사 역할 구분 — 헷갈리는 포인트!</div>
+
+    <div class="hl-box hl-green">
+      <span class="hl-icon">🎯</span>
+      <span>to부정사는 <strong>"~하는"</strong>(형용사) 또는 <strong>"~하기 위해"</strong>(부사) 두 가지로 해석돼.
+      앞에 명사가 있으면 → 형용사, 동사 뒤·문장 앞이면 → 부사(목적/이유)</span>
+    </div>
+
+    <div class="eg-wrap">
+      <div class="eg">
+        <div class="en">I need something <span class="w-green">to eat</span>.</div>
+        <div class="ko">나는 먹을 무언가가 필요하다.</div>
+        <div class="note note-green">형용사 역할 → something(명사)을 뒤에서 수식 "먹을"</div>
+      </div>
+      <div class="eg">
+        <div class="en">He went to the store <span class="w-green">to buy food</span>.</div>
+        <div class="ko">그는 음식을 사기 위해 가게에 갔다.</div>
+        <div class="note note-green">부사 역할 → 목적·이유 "~하기 위해"</div>
+      </div>
+      <div class="eg">
+        <div class="en"><span class="w-red">✗</span> Do you have <span style="text-decoration:line-through;color:#b91c1c;">to eat anything</span>?
+        &nbsp; <span class="w-green">✓</span> Do you have <span class="w-green">anything to eat</span>?</div>
+        <div class="note note-green">명사(anything) 뒤에서 수식 → to eat가 anything 뒤에 와야 함!</div>
+      </div>
+    </div>
+
+    <div class="div-label">관계대명사절 — 후치 수식의 핵심</div>
+
+    <div class="rule-card">
+      <h5>📌 관계대명사 핵심 규칙</h5>
+      <p>선행사(명사) + 관계사 + <strong>불완전한 절</strong> → "~하는 [명사]"로 해석</p>
+    </div>
+
+    <table class="qr-table">
+      <thead>
+        <tr>
+          <th>선행사</th>
+          <th>관계사</th>
+          <th>절의 상태</th>
+          <th>예문</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>사람</td>
+          <td><span class="w-blue">who</span> (주격)</td>
+          <td>주어 없는 절</td>
+          <td>the man <span class="w-green">who invented</span> matches</td>
+        </tr>
+        <tr>
+          <td>사람</td>
+          <td><span class="w-blue">whom</span> (목적격)</td>
+          <td>목적어 없는 절</td>
+          <td>the man <span class="w-green">whom I met</span></td>
+        </tr>
+        <tr>
+          <td>사물</td>
+          <td><span class="w-blue">which</span></td>
+          <td>주어/목적어 없는 절</td>
+          <td>the book <span class="w-green">which I read</span></td>
+        </tr>
+        <tr>
+          <td>사람·사물</td>
+          <td><span class="w-blue">that</span></td>
+          <td>주어/목적어 없는 절</td>
+          <td>the sandwich <span class="w-green">that he made</span></td>
+        </tr>
+        <tr>
+          <td>사람·사물</td>
+          <td><span class="w-blue">whose</span> (소유격)</td>
+          <td>소유격 없는 절</td>
+          <td>a man <span class="w-green">whose name is Walker</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="hl-box hl-red">
+      <span class="hl-icon">⚠️</span>
+      <span><strong>수 일치 주의!</strong> 관계사절 안의 동사는 <strong>선행사</strong>에 맞춰야 해.<br>
+      The people who <span style="text-decoration:line-through;color:#b91c1c;">is</span> → <strong>are</strong> standing there. (선행사 people = 복수)</span>
+    </div>
+
+    <div class="div-label">분사 수식 — -ing vs -ed 구분</div>
+
+    <div class="two-col">
+      <div class="mini-card" style="border-color:#6ee7b7;">
+        <h5 style="color:var(--step3);">능동 의미 → -ing (현재분사)</h5>
+        <p>명사가 행동을 <strong>직접 하는</strong> 경우<br>
+        "~하는, ~하고 있는"</p>
+        <div class="eg" style="margin-top:8px;">
+          <div class="en">the <span class="w-green">sleeping</span> baby</div>
+          <div class="ko">잠자고 있는 아기</div>
+        </div>
+      </div>
+      <div class="mini-card" style="border-color:#6ee7b7;">
+        <h5 style="color:var(--step3);">수동 의미 → -ed (과거분사)</h5>
+        <p>명사가 행동을 <strong>당하는</strong> 경우<br>
+        "~된, ~당한"</p>
+        <div class="eg" style="margin-top:8px;">
+          <div class="en">matches <span class="w-green">invented</span> by Walker</div>
+          <div class="ko">워커에 의해 발명된 성냥</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ STEP 4 ══════════════════════════ -->
+<div class="section s4" id="step4">
+  <div class="sec-head">
+    <div class="sec-num">④<small>STEP</small></div>
+    <div class="sec-title-bar">
+      <div>
+        <h2>🟣 절을 연결하는 말을 찾아라</h2>
+        <p>접속사·관계사·부사절을 구분하면 긴 문장도 쉬워진다</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <div class="hl-box hl-purple">
+      <span class="hl-icon">💡</span>
+      <span><strong>핵심 원칙:</strong> 접속사는 <strong>두 절(완전한 문장)을 연결</strong>하거나 <strong>부사절을 이끌어</strong>.
+      절과 절 사이의 연결 고리를 파악하면 복잡한 문장도 쪼갤 수 있어!</span>
+    </div>
+
+    <div class="div-label">절 연결어 완전 정리</div>
+
+    <table class="qr-table">
+      <thead>
+        <tr>
+          <th style="background:var(--step4);">종류</th>
+          <th style="background:var(--step4);">단어들</th>
+          <th style="background:var(--step4);">뒤에 오는 절</th>
+          <th style="background:var(--step4);">해석</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>등위접속사</td>
+          <td><span class="w-purple">and, but, or, so</span></td>
+          <td>완전한 절</td>
+          <td>~이고, ~이지만, ~또는, ~그래서</td>
+        </tr>
+        <tr>
+          <td>시간 부사절</td>
+          <td><span class="w-purple">when, while, after, before, since</span></td>
+          <td>완전한 절</td>
+          <td>~할 때, ~하는 동안, ~한 후</td>
+        </tr>
+        <tr>
+          <td>이유 부사절</td>
+          <td><span class="w-purple">because, since, as</span></td>
+          <td>완전한 절</td>
+          <td>~때문에, ~이므로</td>
+        </tr>
+        <tr>
+          <td>조건 부사절</td>
+          <td><span class="w-purple">if, unless</span></td>
+          <td>완전한 절</td>
+          <td>~라면, ~하지 않으면</td>
+        </tr>
+        <tr>
+          <td>양보 부사절</td>
+          <td><span class="w-purple">although, though, even though</span></td>
+          <td>완전한 절</td>
+          <td>~임에도 불구하고</td>
+        </tr>
+        <tr>
+          <td>결과 부사절</td>
+          <td><span class="w-purple">so ~ that</span></td>
+          <td>완전한 절</td>
+          <td>너무 ~해서 ...하다</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="div-label">부사절 연결사 vs 관계대명사 구분 포인트</div>
+
+    <div class="hl-box hl-purple">
+      <span class="hl-icon">🔑</span>
+      <span>
+        <strong>부사절 접속사</strong> (when, where, how, why, that) 뒤 → <strong>완전한 절</strong><br>
+        <strong>관계대명사</strong> (who, which, that) 뒤 → <strong>불완전한 절</strong> (주어나 목적어 빠짐)<br>
+        → <strong>뒤 절을 보고 구분해!</strong>
+      </span>
+    </div>
+
+    <div class="eg-wrap">
+      <div class="eg">
+        <div class="en">I know the place <span class="w-purple">where</span> <span class="w-green">he works</span>. (관계부사)</div>
+        <div class="ko">나는 그가 일하는 장소를 안다.</div>
+        <div class="note note-purple">where 뒤 = 완전한 절 (he works 완전함) → "~하는 장소"</div>
+      </div>
+      <div class="eg">
+        <div class="en">the book <span class="w-purple">which</span> <span class="w-red">I read ___</span>. (관계대명사)</div>
+        <div class="ko">내가 읽은 책</div>
+        <div class="note note-purple">which 뒤 = 불완전한 절 (read의 목적어 ___ 빠짐) → "~하는 책"</div>
+      </div>
+    </div>
+
+    <div class="div-label">복합관계사 — whoever, whatever, whichever</div>
+
+    <div class="three-col">
+      <div class="mini-card" style="border-color:#c4b5fd;">
+        <h5 style="color:var(--step4);">whoever</h5>
+        <p>= anyone who<br>"~하는 사람은 누구든지"<br>+ 불완전한 절</p>
+      </div>
+      <div class="mini-card" style="border-color:#c4b5fd;">
+        <h5 style="color:var(--step4);">whatever</h5>
+        <p>= anything that<br>"~하는 것은 무엇이든지"<br>+ 불완전한 절</p>
+      </div>
+      <div class="mini-card" style="border-color:#c4b5fd;">
+        <h5 style="color:var(--step4);">whichever</h5>
+        <p>= any one that<br>"~하는 어느 것이든지"<br>+ 명사 + 불완전한 절</p>
+      </div>
+    </div>
+
+    <div class="div-label">부사절 어순 주의 — 문장 앞에 오면 쉼표!</div>
+
+    <div class="eg-wrap">
+      <div class="eg">
+        <div class="en"><span class="w-purple">When he scraped the stick</span>, he started a fire.</div>
+        <div class="ko">그가 막대를 긁었을 때, 그는 불을 붙였다.</div>
+        <div class="note note-purple">부사절이 앞에 오면 쉼표(,) 필요. 뒤에 오면 쉼표 없음.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ STEP 5 ══════════════════════════ -->
+<div class="section s5" id="step5">
+  <div class="sec-head">
+    <div class="sec-num">⑤<small>STEP</small></div>
+    <div class="sec-title-bar">
+      <div>
+        <h2>🟠 독해 전략 — 해석 완성</h2>
+        <p>문장 해석법 + 독식화·추제 파악</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <div class="hl-box hl-orange">
+      <span class="hl-icon">🌟</span>
+      <span><strong>독해의 목표:</strong> 단어 하나하나 번역하는 게 아니라,
+      <strong>문장의 의미 덩어리를 파악</strong>하는 거야. 뼈대(주어+동사)를 잡고, 수식어를 붙이면 돼!</span>
+    </div>
+
+    <div class="div-label">독식화 — 문장을 한 줄로 이해하기</div>
+
+    <div class="checklist">
+      <div class="cl-item">
+        <span class="cl-icon">1️⃣</span>
+        <span>수식어구(괄호 묶기)를 제거하고 → 핵심 뼈대(주어+동사+목적어/보어)만 먼저 파악해</span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-icon">2️⃣</span>
+        <span>뼈대 해석이 끝나면 → 제거했던 수식어를 다시 붙여서 완전한 의미 완성</span>
+      </div>
+      <div class="cl-item">
+        <span class="hl-icon">3️⃣</span>
+        <span>전체 지문을 <strong>5~7문장으로 요약</strong>할 수 있을 정도로 이해되면 독식화 완성!</span>
+      </div>
+    </div>
+
+    <div class="div-label">추제 파악 — 글쓴이가 하고 싶은 말 찾기</div>
+
+    <div class="rule-card">
+      <h5>📌 추제(요지/주제/제목) 파악 공식</h5>
+      <p>지문의 <strong>핵심 소재(키워드)</strong>를 찾고 → 작가가 그것에 대해 강조하는 말을 한 문장으로 압축!</p>
+    </div>
+
+    <div class="div-label">해석이 안 될 때 — 단계별 해결법</div>
+
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-circle sc5">?</div>
+        <div class="step-content">
+          <h4>해석이 안 되는 구절이 나왔을 때</h4>
+          <p>
+            ① <strong>to부정사</strong>인지 확인 → "~하는" 또는 "~하기 위해"로 해석 시도<br>
+            ② 해석이 안 되면 <strong>동명사(-ing)</strong>인지 확인 → "~하는 것"으로 해석<br>
+            ③ 그래도 안 되면 <strong>분사구</strong>인지 확인 → 명사를 꾸미는 수식어로 봐
+          </p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-circle sc5">!</div>
+        <div class="step-content">
+          <h4>완전한 절인지 불완전한 절인지 모를 때</h4>
+          <p>
+            <strong>완전한 절</strong> = 주어 + 동사 + (필요하면 목적어·보어) 다 있음<br>
+            <strong>불완전한 절</strong> = 주어, 목적어, 보어 중 하나라도 빠짐<br>
+            → 뒤 절에서 빠진 성분을 찾아봐!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-label">부사절 vs 명사절 vs 형용사절 — 한눈에 비교</div>
+
+    <table class="qr-table">
+      <thead>
+        <tr>
+          <th style="background:var(--step5);">역할</th>
+          <th style="background:var(--step5);">이끄는 말</th>
+          <th style="background:var(--step5);">뒤 절</th>
+          <th style="background:var(--step5);">위치·해석</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>명사절</td>
+          <td>that, if/whether, 의문사</td>
+          <td><span class="w-green">완전</span></td>
+          <td>주어·목적어 자리 / "~라는 것, ~인지"</td>
+        </tr>
+        <tr>
+          <td>형용사절</td>
+          <td>who, which, that, whose, where, when</td>
+          <td><span class="w-red">불완전</span> (관계대명사)<br><span class="w-green">완전</span> (관계부사)</td>
+          <td>명사 뒤 / "~하는, ~한"</td>
+        </tr>
+        <tr>
+          <td>부사절</td>
+          <td>when, where, how, why, that, because, if, although</td>
+          <td><span class="w-green">완전</span></td>
+          <td>동사·문장 수식 / "~할 때, ~이므로, ~하게"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="div-label">수동태 완전 정리 — 읽다가 만나면 이렇게!</div>
+
+    <div class="eg-wrap">
+      <div class="eg">
+        <div class="en">Matches <span class="w-orange">were invented</span> by John Walker.</div>
+        <div class="ko">성냥은 존 워커에 의해 발명되었다.</div>
+        <div class="note note-orange">be동사(were) + p.p.(invented) = 수동태 → "~에 의해 ~되었다"</div>
+      </div>
+      <div class="eg">
+        <div class="en">The air conditioner <span class="w-orange">was set up</span> to protect paper.</div>
+        <div class="ko">에어컨은 종이를 보호하기 위해 설치되었다.</div>
+        <div class="note note-orange">by절 생략 가능 (행위자 불명확할 때)</div>
+      </div>
+    </div>
+
+    <div class="hl-box hl-orange">
+      <span class="hl-icon">🔑</span>
+      <span>
+        <strong>수동태 판단 규칙:</strong><br>
+        주어가 행위를 <strong>직접 하면</strong> → 능동태 (그냥 동사)<br>
+        주어가 행위를 <strong>당하면</strong> → 수동태 (be + p.p.)<br>
+        ⚠ 한국어 "~되다"라고 해석된다고 무조건 수동태가 아니야. 구조로 판단해!
+      </span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════ QUICK REFERENCE ══════════════════════ -->
+<div style="background:white; border:1.5px solid var(--border); border-radius:14px; padding:22px 20px; box-shadow:var(--card-shadow); margin-bottom:28px;">
+  <h3 style="font-family:'Black Han Sans',sans-serif; font-size:17px; color:var(--navy); margin-bottom:16px; letter-spacing:-.5px;">
+    📋 독해할 때 체크리스트
+  </h3>
+  <div class="checklist">
+    <div class="cl-item"><span class="cl-icon">🔴</span><span>동사를 찾았나? 완전한 동사인지 확인했나?</span></div>
+    <div class="cl-item"><span class="cl-icon">🔵</span><span>주어와 목적어 자리를 확인했나? 명사절이면 어순 확인!</span></div>
+    <div class="cl-item"><span class="cl-icon">🟢</span><span>수식어구(to부정사·분사·관계사절·전치사구)를 ( )로 묶었나?</span></div>
+    <div class="cl-item"><span class="cl-icon">🟣</span><span>절을 연결하는 접속사·관계사를 찾았나? 뒤 절이 완전한지 불완전한지 체크!</span></div>
+    <div class="cl-item"><span class="cl-icon">🟠</span><span>수동태(be+p.p.)를 만나면 "~되다"로, 완전하게 해석 완성했나?</span></div>
+    <div class="cl-item"><span class="cl-icon">⭐</span><span>전체 지문의 핵심을 한 문장으로 말할 수 있나? (추제 파악)</span></div>
+  </div>
+</div>
+
+<!-- BIG TIP -->
+<div class="big-tip">
+  <h3>"세상에 <span>공짜</span>는 없다. 인생 무료업그레이드는 없다."</h3>
+  <p>이 가이드를 외우고 쓸 줄 알게 되는 날까지,<br>
+  <strong>반복하고 또 반복하자.</strong> 문법은 누적이고, 독해는 훈련이야. 💪</p>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  영어 독해 가이드맵 · 학습용 참고 자료 · 독해 시 옆에 놓고 활용하세요
+</footer>
+
+</body>
+</html>
